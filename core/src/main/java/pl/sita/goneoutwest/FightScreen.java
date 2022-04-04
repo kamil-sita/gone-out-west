@@ -17,11 +17,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class FightScreen implements Screen {
 
-	private final long difficulty;
 	private final long length;
 	private static final AtomicInteger idGenerator = new AtomicInteger();
 	private final int id = idGenerator.getAndIncrement();
-
 
 	float introTime = 0;
 	private final Sound shootingSound = Gdx.audio.newSound(
@@ -37,12 +35,6 @@ public class FightScreen implements Screen {
 	private final BitmapFont nandakaFont = new BitmapFont(
 			Gdx.files.internal("nandaka_western.fnt")
 	);
-	private final BitmapFont nandakaSmallFont = new BitmapFont(
-			Gdx.files.internal("nandaka_western_s.fnt")
-	);
-	private final BitmapFont nandakaMidFont = new BitmapFont(
-			Gdx.files.internal("nandaka_western_m.fnt")
-	);
 
 	ShaderProgram shaderProgram;
 
@@ -52,7 +44,6 @@ public class FightScreen implements Screen {
 
 	public FightScreen(MapScreen mapScreen, long difficulty, long length) {
 		this.mapScreen = mapScreen;
-		this.difficulty = difficulty;
 		this.length = length;
 		shaderProgram = new ShaderProgram(
 				Gdx.files.internal("shader_vertex.glsl"),
